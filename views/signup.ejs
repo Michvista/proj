@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Sign up to kuber</h1>
+    <form method="POST" action="/signup">
+        <% if (inputData.hasError ) {%>
+            <% if (inputData.message === "Invalid lenght of data" ) {%>
+            <p id="input-error"><%= inputData.message %></p>
+        <% } %>
+        <% } %>
+        <input type="text" name="name" placeholder="name" value="<%= inputData.name %>">
+        <input type="text" name="username" placeholder="Username" value="<%= inputData.userName %>">
+        <% if (inputData.hasError ) {%>
+            <% if (inputData.message === "UserName in use" ) {%>
+            <p id="input-error"><%= inputData.message %></p>
+        <% } %>
+        <% } %>
+        <input type="email" name="email" placeholder="email" value="<%= inputData.email %>">
+        <input type="password" name="password" placeholder="password" value="<%= inputData.password %>">
+        <input type="password" name="ConfirmPassword" placeholder="Confirm password" value="<%= inputData.confirmPassword %>">
+        <% if (inputData.hasError ) {%>
+            <% if (inputData.message === "Passwords must be equal" ) {%>
+            <p id="input-error"><%= inputData.message %></p>
+        <% } %>
+        <% } %>
+        <button>Submit</button>
+    </form>
+    <div class="textGoogle"><a href="/forgot">forgot password?</a></div>
+    <div class="textGoogle"><a href="">or sign in instead</a></div>
+    <div class="textGoogle"><a href="">or sign up with google</a></div>
+</body>
+</html>
